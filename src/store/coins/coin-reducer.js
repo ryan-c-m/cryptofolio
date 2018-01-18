@@ -12,8 +12,17 @@ export default function reduce(state = initialState, action = {}) {
     case types.COINS_FETCHED:
       return { ...state, coins: action.coins };
     case types.COINS_ADD:
-      return { ...state, coins: [...state.coins, action.added] };
+      return addCoin(state, action.added);
     default:
       return state;
   }
 }
+
+const addCoin = (state, newCoin) => {
+  let exists = false;
+  const currentCoins = state.coins;
+  currentCoins.map(existingCoin => {
+    if (newCoin.code === existingCoin.code) exists = true;
+  });
+  return exists ? state : { ...state, coins: [...currentCoins, newCoin] };
+};

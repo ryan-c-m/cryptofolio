@@ -21,5 +21,11 @@ describe("coinReducer", () => {
       state = coinReducer(state, { type: "COINS_ADD", added: newCoin });
       expect(state).toEqual({ coins: [newCoin] });
     });
+    it("should not duplicate adding coin code already existing", () => {
+      let state = { coins: [{ code: "XRP", price: 0.01 }] };
+      const newCoin = { code: "XRP", price: 0.01 };
+      state = coinReducer(state, { type: "COINS_ADD", added: newCoin });
+      expect(state).toEqual({ coins: [newCoin] });
+    });
   });
 });
