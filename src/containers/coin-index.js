@@ -19,7 +19,7 @@ class CoinIndex extends Component {
         return( 
             <div className="CoinIndex">
                 <h2>Coins</h2> 
-                <CoinItems coins={this.props.coins} />
+                <CoinItems coins={this.props.coins} addCoin={added => this.props.addCoin(added)}/>
             </div>
         );
     }
@@ -33,6 +33,8 @@ function mapDispatchToProps(dispatch) {
     return {
       loadCoins() {
         dispatch(coinActions.fetchCoins())
+      }, addCoin(added) {
+        dispatch(coinActions.addCoin(added))  
       }
     }
   }

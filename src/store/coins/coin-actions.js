@@ -7,3 +7,9 @@ export function fetchCoins() {
         dispatch({ type: types.COINS_FETCHED, coins });
     }
 }
+
+export function addCoin(added) {
+    return async(dispatch, getState) => {
+        dispatch({ type: types.COINS_ADD, added });
+    }
+}
