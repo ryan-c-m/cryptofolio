@@ -19,7 +19,7 @@ export default class CoinItems extends Component {
   }
 
   render() {
-    const coinItems = this.props.coins.map((coin) => {
+    const coinItems = this.props.coins.map(coin => {
         return (<div key={coin.code}>{coin.code} (${coin.price}) * {coin.quantity} == ${coin.quantity * coin.price}</div>)
       }
     );

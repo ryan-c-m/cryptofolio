@@ -3,6 +3,7 @@ import autoBind from 'react-autobind';
 import { connect } from 'react-redux';
 import * as coinActions from '../store/coins/coin-actions';
 import CoinItems from '../components/coin-items';
+import CoinTotal from '../components/coin-total';
 
 class CoinIndex extends Component {
 
@@ -20,6 +21,7 @@ class CoinIndex extends Component {
             <div className="CoinIndex">
                 <h2>Coins</h2> 
                 <CoinItems coins={this.props.coins} addCoin={added => this.props.addCoin(added)}/>
+                <CoinTotal coins={this.props.coins} />
             </div>
         );
     }
