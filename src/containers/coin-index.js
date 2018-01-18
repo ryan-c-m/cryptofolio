@@ -17,11 +17,11 @@ class CoinIndex extends Component {
 
   render() {
     return (
-      <div className="CoinIndex">
-        <h2>Coins</h2>
+      <div className="CoinIndex container">
         <CoinItems
           coins={this.props.coins}
           addCoin={added => this.props.addCoin(added)}
+          deleteCoin={deleted => this.props.deleteCoin(deleted)}
         />
         <CoinTotal coins={this.props.coins} />
       </div>
@@ -40,6 +40,9 @@ function mapDispatchToProps(dispatch) {
     },
     addCoin(added) {
       dispatch(coinActions.addCoin(added));
+    },
+    deleteCoin(deleted) {
+      dispatch(coinActions.deleteCoin(deleted));
     }
   };
 }

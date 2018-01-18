@@ -9,6 +9,6 @@ export default class CoinTotal extends Component {
   render() {
     let total = 0;
     this.props.coins.map(coin => (total += coin.quantity * coin.price));
-    return <div>Total: ${total}</div>;
+    return <div className="row col-sm-12">Total: ${total}</div>;
   }
 }

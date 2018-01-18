@@ -13,3 +13,9 @@ export function addCoin(added) {
     dispatch({ type: types.COINS_ADD, added });
   };
 }
+
+export function deleteCoin(deleted) {
+  return (dispatch, getState) => {
+    dispatch({ type: types.COINS_DELETE, deleted });
+  };
+}
