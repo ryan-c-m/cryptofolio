@@ -1,3 +1,3 @@
-import coins from './coins/coin-reducer';
+import coins from "./coins/coin-reducer";
 
 export { coins };
