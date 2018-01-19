@@ -13,7 +13,7 @@ export default class CoinAdd extends Component {
       code: this.state.code,
       quantity: this.state.quantity
     });
-    this.setState({ code: "", quantity: "" });
+    this.setState({ code: "", quantity: "", addingCoin: false });
     event.preventDefault();
   }
 

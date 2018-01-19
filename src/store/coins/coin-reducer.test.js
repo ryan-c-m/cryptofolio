@@ -20,15 +20,15 @@ describe("coinReducer", () => {
   describe("COINS_ADD", () => {
     it("adds coin to store", () => {
       let state = { addedCoins: [] };
-      const newCoin = { code: "XRP", price: 0.01 };
+      const newCoin = { code: "XRP", quantity: 5 };
       state = coinReducer(state, { type: "COINS_ADD", added: newCoin });
       expect(state).toEqual({ addedCoins: [newCoin] });
     });
     it("should not duplicate adding coin code already existing", () => {
-      let state = { addedCoins: [{ code: "XRP", price: 0.01 }] };
-      const newCoin = { code: "XRP", price: 0.01 };
+      let state = { addedCoins: [{ code: "XRP", quantity: 5 }] };
+      const newCoin = { code: "XRP", quantity: 4 };
       state = coinReducer(state, { type: "COINS_ADD", added: newCoin });
-      expect(state).toEqual({ addedCoins: [newCoin] });
+      expect(state).toEqual({ addedCoins: [{ code: "XRP", quantity: 5 }] });
     });
   });
 });
