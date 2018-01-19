@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import * as coinActions from "../store/coins/coin-actions";
 import CoinItems from "../components/coin-items";
 import CoinTotal from "../components/coin-total";
+import CoinAdd from "../components/coin-add";
 
 class CoinIndex extends Component {
   constructor(props) {
@@ -17,20 +18,23 @@ class CoinIndex extends Component {
 
   render() {
     return (
-      <div className="CoinIndex container">
+      <div className="CoinIndex container mt-5">
         <CoinItems
-          coins={this.props.coins}
-          addCoin={added => this.props.addCoin(added)}
+          addedCoins={this.props.addedCoins}
           deleteCoin={deleted => this.props.deleteCoin(deleted)}
         />
-        <CoinTotal coins={this.props.coins} />
+        <CoinAdd
+          coinList={this.props.coinList}
+          addCoin={added => this.props.addCoin(added)}
+        />
+        <CoinTotal addedCoins={this.props.addedCoins} />
       </div>
     );
   }
 }
 
 function mapStateToProps(state) {
-  return state.coins;
+  return { addedCoins: state.coins.addedCoins, coinList: state.coins.coinList };
 }
 
 function mapDispatchToProps(dispatch) {

@@ -8,7 +8,11 @@ export default class CoinTotal extends Component {
   }
   render() {
     let total = 0;
-    this.props.coins.map(coin => (total += coin.quantity * coin.price));
-    return <div className="row col-sm-12">Total: ${total}</div>;
+    this.props.addedCoins.map(coin => (total += coin.quantity * coin.price));
+    return (
+      <div className="row col-sm-12 mt-3">
+        <h3>${total.toFixed(2)}</h3>
+      </div>
+    );
   }
 }

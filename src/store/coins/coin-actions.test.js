@@ -5,17 +5,26 @@ import { shallow } from "enzyme";
 import React from "react";
 import { configure } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
+import exchangeService from "../../services/exchange-service";
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
-describe("coinReducer", () => {
+jest.mock("../../services/exchange-service");
+
+describe("coinActions", () => {
   describe("fetchCoins", () => {
-    const coinList = [{ code: "BTC", price: 10, quantity: 3 }];
+    const coinList = ["BTC"];
     const store = mockStore();
 
+    beforeEach(() => {
+      exchangeService.getCoinList.mockImplementation(() => {
+        return coinList;
+      });
+    });
+
     it("dispatches a COINS_FETCHED action", async () => {
-      const expectedAction = [{ coins: [], type: "COINS_FETCHED" }];
+      const expectedAction = [{ coinList: coinList, type: "COINS_FETCHED" }];
       store.dispatch(coinActions.fetchCoins()).then(() => {
         expect(store.getActions()).toEqual(expectedAction);
       });

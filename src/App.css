@@ -13,6 +13,21 @@
   font-size: large;
 }
 
+.added-items {
+  margin-bottom: 10px;
+}
+
+.CoinIndex {
+  padding: 20px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  background-color: #f5f5f5;
+}
+
+.btn {
+  cursor: pointer;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

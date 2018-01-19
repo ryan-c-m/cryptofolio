@@ -3,8 +3,8 @@ import exchangeService from "../../services/exchange-service";
 
 export function fetchCoins() {
   return async (dispatch, getState) => {
-    const coins = [];
-    dispatch({ type: types.COINS_FETCHED, coins });
+    const coinList = await exchangeService.getCoinList();
+    dispatch({ type: types.COINS_FETCHED, coinList });
   };
 }
 

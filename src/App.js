@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import CoinIndex from "./containers/coin-index";
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
+import "../node_modules/react-select/dist/react-select.css";
+import "./App.css";
 
 class App extends Component {
   render() {

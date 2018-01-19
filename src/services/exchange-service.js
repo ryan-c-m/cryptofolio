@@ -9,7 +9,7 @@ class ExchangeService {
     const json = await this.getJsonData();
     const result = json
       .filter(item => item.symbol === coinCode.toUpperCase())
-      .map(item => parseInt(item.price_aud));
+      .map(item => parseFloat(item.price_aud));
 
     if (result && result[0]) {
       return result[0];
@@ -19,7 +19,9 @@ class ExchangeService {
   }
   async getCoinList() {
     const json = await this.getJsonData();
-    return json.map(item => item.symbol);
+    return json.map(item => {
+      return { code: item.symbol, name: item.name };
+    });
   }
   async getJsonData() {
     const response = await fetch(this.url);
