@@ -1,15 +1,16 @@
 import * as types from "./action-types";
-import coinService from "../../services/coin-service";
+import exchangeService from "../../services/exchange-service";
 
 export function fetchCoins() {
   return async (dispatch, getState) => {
-    const coins = await coinService.getAllCoins();
+    const coins = [];
     dispatch({ type: types.COINS_FETCHED, coins });
   };
 }
 
 export function addCoin(added) {
   return async (dispatch, getState) => {
+    added.price = await exchangeService.getCurrentPrice(added.code);
     dispatch({ type: types.COINS_ADD, added });
   };
 }
