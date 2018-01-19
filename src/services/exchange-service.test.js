@@ -10,7 +10,7 @@ describe("ExchangeService", () => {
   });
   describe("getCurrentPrice", () => {
     it("gets price for coin code", async () => {
-      const price = await exchangeService.getCurrentPrice("btc");
+      const price = await exchangeService.getCurrentPrice("bitcoin");
       expect(price).toBeGreaterThan(0);
     });
   });

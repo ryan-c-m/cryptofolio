@@ -8,7 +8,7 @@ class ExchangeService {
   async getCurrentPrice(coinCode) {
     const json = await this.getJsonData();
     const result = json
-      .filter(item => item.symbol === coinCode.toUpperCase())
+      .filter(item => item.name.toUpperCase() === coinCode.toUpperCase())
       .map(item => parseFloat(item.price_aud));
 
     if (result && result[0]) {

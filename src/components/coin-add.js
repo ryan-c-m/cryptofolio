@@ -29,7 +29,7 @@ export default class CoinAdd extends Component {
 
   getCoinOptions() {
     const options = this.props.coinList.map(item => {
-      return { value: item.code, label: item.name };
+      return { value: item.name, label: item.name };
     });
     return options;
   }
