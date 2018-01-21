@@ -9,7 +9,12 @@ class ExchangeService {
     const json = await this.getJsonData();
     const result = json
       .filter(item => item.name.toUpperCase() === coinCode.toUpperCase())
-      .map(item => parseFloat(item.price_aud));
+      .map(item => {
+        return {
+          aud: parseFloat(item.price_aud),
+          btc: parseFloat(item.price_btc)
+        };
+      });
 
     if (result && result[0]) {
       return result[0];

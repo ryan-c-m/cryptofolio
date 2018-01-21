@@ -10,7 +10,9 @@ export function fetchCoins() {
 
 export function addCoin(added) {
   return async (dispatch, getState) => {
-    added.price = await exchangeService.getCurrentPrice(added.code);
+    const price = await exchangeService.getCurrentPrice(added.code);
+    added.price_aud = price.aud;
+    added.price_btc = price.btc;
     dispatch({ type: types.COINS_ADD, added });
   };
 }

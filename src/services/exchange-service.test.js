@@ -11,7 +11,7 @@ describe("ExchangeService", () => {
   describe("getCurrentPrice", () => {
     it("gets price for coin code", async () => {
       const price = await exchangeService.getCurrentPrice("bitcoin");
-      expect(price).toBeGreaterThan(0);
+      expect(price.aud).toBeGreaterThan(0);
     });
   });
   describe("getCoinList", () => {

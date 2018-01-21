@@ -18,6 +18,7 @@ export default class CoinAdd extends Component {
   }
 
   updateCode(newValue) {
+    if (!newValue) return;
     this.setState({
       code: newValue.value
     });
@@ -51,6 +52,7 @@ export default class CoinAdd extends Component {
             value={this.state.code}
             name="value"
             onChange={this.updateCode}
+            placeholder="Add coin..."
           />
         </div>
         <div className="col-sm-2">
