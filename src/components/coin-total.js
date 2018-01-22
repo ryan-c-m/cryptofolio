@@ -8,7 +8,6 @@ export default class CoinTotal extends Component {
   }
 
   getDollarTotal() {
-    if (this.props.addedCoins.length === 0) return 0;
     return this.props.addedCoins.reduce(
       (accumulator, coin) => accumulator + coin.quantity * coin.price_aud,
       0
@@ -16,7 +15,6 @@ export default class CoinTotal extends Component {
   }
 
   getBtcTotal() {
-    if (this.props.addedCoins.length === 0) return 0;
     return this.props.addedCoins.reduce(
       (accumulator, coin) => accumulator + coin.quantity * coin.price_btc,
       0
