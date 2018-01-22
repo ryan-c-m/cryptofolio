@@ -13,6 +13,7 @@ export function addCoin(added) {
     const price = await exchangeService.getCurrentPrice(added.code);
     added.price_aud = price.aud;
     added.price_btc = price.btc;
+    added.change = price.change;
     dispatch({ type: types.COINS_ADD, added });
   };
 }

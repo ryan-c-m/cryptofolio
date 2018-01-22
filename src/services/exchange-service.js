@@ -12,9 +12,12 @@ class ExchangeService {
       .map(item => {
         return {
           aud: parseFloat(item.price_aud),
-          btc: parseFloat(item.price_btc)
+          btc: parseFloat(item.price_btc),
+          change: item.percent_change_24h
         };
       });
+
+    console.log(result);
 
     if (result && result[0]) {
       return result[0];
