@@ -8,19 +8,19 @@ export default class CoinTotal extends Component {
   }
 
   getDollarTotal() {
-    let total = 0;
-    this.props.addedCoins.map(
-      coin => (total += coin.quantity * coin.price_aud)
+    if (this.props.addedCoins.length === 0) return 0;
+    return this.props.addedCoins.reduce(
+      (accumulator, coin) => accumulator + coin.quantity * coin.price_aud,
+      0
     );
-    return total;
   }
 
   getBtcTotal() {
-    let total = 0;
-    this.props.addedCoins.map(
-      coin => (total += coin.quantity * coin.price_btc)
+    if (this.props.addedCoins.length === 0) return 0;
+    return this.props.addedCoins.reduce(
+      (accumulator, coin) => accumulator + coin.quantity * coin.price_btc,
+      0
     );
-    return total;
   }
 
   render() {

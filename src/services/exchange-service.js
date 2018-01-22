@@ -17,8 +17,6 @@ class ExchangeService {
         };
       });
 
-    console.log(result);
-
     if (result && result[0]) {
       return result[0];
     } else {
