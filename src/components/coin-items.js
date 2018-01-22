@@ -22,16 +22,19 @@ export default class CoinItems extends Component {
         ? this.props.addedCoins.map(coin => {
             return (
               <div className="row align-items-center mt-1 mb-1" key={coin.code}>
-                <div className="col-md-3">
+                <div className="col-md-2">
                   {coin.code} (${coin.price_aud.toFixed(2)})
                 </div>
                 <div className="col-md-2">{coin.quantity}</div>
-                <div className="col-md-3">
-                  ${(coin.quantity * coin.price_aud).toFixed(2)}
+                <div className="col-md-4">
+                  ${(coin.quantity * coin.price_aud).toFixed(2)} ({(
+                    coin.quantity *
+                    coin.price_aud /
+                    total *
+                    100
+                  ).toFixed(0)}%)
                 </div>
-                <div className="col-md-2">
-                  ({(coin.quantity * coin.price_aud / total * 100).toFixed(0)}%)
-                </div>
+                <div className="col-md-2">{coin.change}</div>
                 <div className="col-md-2">
                   <button
                     className="btn btn-primary"
@@ -47,17 +50,17 @@ export default class CoinItems extends Component {
 
     const header = (
       <div className="row">
-        <div className="col-sm-3">
+        <div className="col-sm-2">
           <h4>Currency</h4>
         </div>
         <div className="col-sm-2">
           <h4>Units</h4>
         </div>
-        <div className="col-sm-3">
-          <h4>Value ($)</h4>
+        <div className="col-sm-4">
+          <h4>Value</h4>
         </div>
         <div className="col-sm-2">
-          <h4>%</h4>
+          <h4>Change</h4>
         </div>
       </div>
     );

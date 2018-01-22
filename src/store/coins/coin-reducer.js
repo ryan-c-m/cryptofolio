@@ -22,20 +22,19 @@ export default function reduce(state = initialState, action = {}) {
 
 const addCoin = (state, newCoin) => {
   if (!newCoin.code || !newCoin.quantity) return state;
-  let exists = false;
-  const currentCoins = state.addedCoins;
-  currentCoins
-    .filter(existingCoin => newCoin.code === existingCoin.code)
-    .map(existingCoin => (exists = true));
-  return exists ? state : { ...state, addedCoins: [...currentCoins, newCoin] };
+  return state.addedCoins.filter(
+    existingCoin => newCoin.code === existingCoin.code
+  ).length > 0
+    ? state
+    : { ...state, addedCoins: [...state.addedCoins, newCoin] };
 };
 
 const deleteCoin = (state, deleteCoin) => {
-  const currentCoins = state.addedCoins;
-  let index = undefined;
-  currentCoins
-    .filter(existingCoin => existingCoin.code === deleteCoin)
-    .map(existingCoin => (index = currentCoins.indexOf(existingCoin)));
-  state.addedCoins.splice(index, 1);
-  return { ...state, addedCoins: [...currentCoins] };
+  state.addedCoins.splice(
+    state.addedCoins
+      .filter(existingCoin => existingCoin.code === deleteCoin)
+      .map(existingCoin => state.addedCoins.indexOf(existingCoin)),
+    1
+  );
+  return { ...state, addedCoins: [...state.addedCoins] };
 };

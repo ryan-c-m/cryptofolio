@@ -26,10 +26,8 @@ export default class CoinTotal extends Component {
   render() {
     return (
       <div className="row col-sm-12 mt-3">
-        <h3>
-          ${this.getDollarTotal().toFixed(2)} AUD /{" "}
-          {this.getBtcTotal().toFixed(2)} BTC
-        </h3>
+        ${this.getDollarTotal().toFixed(2)} AUD /{" "}
+        {this.getBtcTotal().toFixed(2)} BTC
       </div>
     );
   }
