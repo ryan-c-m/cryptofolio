@@ -31,4 +31,20 @@ describe("coinReducer", () => {
       expect(state).toEqual({ addedCoins: [{ code: "XRP", quantity: 5 }] });
     });
   });
+  describe("COINS_DELETE", () => {
+    it("removes coin code from store if it exists", () => {
+      let state = { addedCoins: [{ code: "XRP", quantity: 5 }] };
+      const deleteCoin = "XRP";
+      state = coinReducer(state, { type: "COINS_DELETE", deleted: deleteCoin });
+      expect(state).toEqual({ addedCoins: [] });
+    });
+    it("does not remove other coin code from store", () => {
+      let state = {
+        addedCoins: [{ code: "XRP", quantity: 5 }, { code: "BTC", quantity: 5 }]
+      };
+      const deleteCoin = "BTC";
+      state = coinReducer(state, { type: "COINS_DELETE", deleted: deleteCoin });
+      expect(state).toEqual({ addedCoins: [{ code: "XRP", quantity: 5 }] });
+    });
+  });
 });
