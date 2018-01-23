@@ -17,23 +17,19 @@ class ExchangeService {
       change: item.percent_change_24h
     };
   }
+
   async getCoinList() {
     const json = await this.getCachableJsonData();
-    return json.map(item => {
-      return { code: item.symbol, name: item.name };
-    });
+    return json.map(item => ({ code: item.symbol, name: item.name }));
   }
 
   async getCachableJsonData() {
     const TIME_TO_REFRESH = 60000;
-    if (
-      this.data &&
+    return this.data &&
       this.updated &&
       Date.now() - this.updated < TIME_TO_REFRESH
-    ) {
-      return this.data;
-    }
-    return this.refreshJsonData();
+      ? this.data
+      : this.refreshJsonData();
   }
 
   async refreshJsonData() {

@@ -26,12 +26,12 @@ export function deleteCoin(deleted) {
 
 export function refreshCoinData() {
   return async (dispatch, getState) => {
-    getState().coins.addedCoins.forEach(async coin => {
+    for (let coin of getState().coins.addedCoins) {
       const price = await exchangeService.getCurrentPrice(coin.code);
       coin.price_aud = price.aud;
       coin.price_btc = price.btc;
       coin.change = price.change;
-    });
+    }
     dispatch({
       type: types.COINS_LOAD_DATA,
       addedCoins: getState().coins.addedCoins
