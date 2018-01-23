@@ -8,21 +8,14 @@ class ExchangeService {
 
   async getCurrentPrice(coinCode) {
     const json = await this.getCachableJsonData();
-    const result = json
-      .filter(item => item.name.toUpperCase() === coinCode.toUpperCase())
-      .map(item => {
-        return {
-          aud: parseFloat(item.price_aud),
-          btc: parseFloat(item.price_btc),
-          change: item.percent_change_24h
-        };
-      });
-
-    if (result && result[0]) {
-      return result[0];
-    } else {
-      return 0;
-    }
+    const item = json.find(
+      item => item.name.toUpperCase() === coinCode.toUpperCase()
+    );
+    return {
+      aud: parseFloat(item.price_aud),
+      btc: parseFloat(item.price_btc),
+      change: item.percent_change_24h
+    };
   }
   async getCoinList() {
     const json = await this.getCachableJsonData();
