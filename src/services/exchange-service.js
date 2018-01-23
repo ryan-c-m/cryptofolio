@@ -6,8 +6,6 @@ class ExchangeService {
     this.data = undefined;
   }
 
-  static TIME_TO_REFRESH = 60000;
-
   async getCurrentPrice(coinCode) {
     const json = await this.getCachableJsonData();
     const result = json
@@ -34,10 +32,11 @@ class ExchangeService {
   }
 
   async getCachableJsonData() {
+    const TIME_TO_REFRESH = 60000;
     if (
       this.data &&
       this.updated &&
-      Date.now() - this.updated < this.TIME_TO_REFRESH
+      Date.now() - this.updated < TIME_TO_REFRESH
     ) {
       return this.data;
     }

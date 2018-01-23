@@ -47,4 +47,17 @@ describe("coinReducer", () => {
       expect(state).toEqual({ addedCoins: [{ code: "XRP", quantity: 5 }] });
     });
   });
+  describe("COINS_LOAD_DATA", () => {
+    it("loads data", () => {
+      let state = {};
+      const addedCoins = [
+        { code: "XRP", quantity: 5 },
+        { code: "BTC", quantity: 5 }
+      ];
+      state = coinReducer(state, { type: "COINS_LOAD_DATA", addedCoins });
+      expect(state).toEqual({
+        addedCoins: [{ code: "XRP", quantity: 5 }, { code: "BTC", quantity: 5 }]
+      });
+    });
+  });
 });

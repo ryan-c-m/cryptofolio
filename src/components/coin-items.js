@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import autoBind from "react-autobind";
-import Select from "react-select";
 
 export default class CoinItems extends Component {
   constructor(props) {
@@ -20,7 +19,7 @@ export default class CoinItems extends Component {
     const coinItems =
       this.props.addedCoins.length > 0
         ? this.props.addedCoins
-            .sort((a, b) => a.value() < b.value())
+            .sort((a, b) => a.quantity * a.price_aud < b.quantity * b.price_aud)
             .map(coin => {
               return (
                 <div
@@ -33,10 +32,11 @@ export default class CoinItems extends Component {
                   <div className="col-md-2">{coin.quantity}</div>
                   <div className="col-md-3">
                     ${(coin.quantity * coin.price_aud).toFixed(2)} ({(
-                      coin.value() /
+                      coin.quantity *
+                      coin.price_aud /
                       total *
                       100
-                    ).toFixed(0)}%)
+                    ).toFixed(2)}%)
                   </div>
                   <div className="col-md-2">{coin.change}%</div>
                   <div className="col-md-2">

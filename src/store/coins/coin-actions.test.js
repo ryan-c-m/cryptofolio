@@ -53,12 +53,12 @@ describe("coinActions", () => {
     });
   });
 
-  describe("loadCoinData", () => {
+  describe("refreshCoinData", () => {
     const store = mockStore();
     it("dispatches a COINS_LOAD_DATA action", () => {
       const addedCoins = [{ code: "BTC", quantity: 3 }];
       const expectedAction = [{ addedCoins, type: "COINS_LOAD_DATA" }];
-      store.dispatch(coinActions.loadCoinData(addedCoins)).then(() => {
+      store.dispatch(coinActions.refreshCoinData(addedCoins)).then(() => {
         expect(store.getActions()).toEqual(expectedAction);
       });
     });

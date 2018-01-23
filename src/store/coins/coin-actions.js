@@ -14,7 +14,6 @@ export function addCoin(added) {
     added.price_aud = price.aud;
     added.price_btc = price.btc;
     added.change = price.change;
-    added.value = () => added.price_aud * added.quantity;
     dispatch({ type: types.COINS_ADD, added });
   };
 }

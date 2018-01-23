@@ -9,7 +9,7 @@ export default class CoinTotal extends Component {
 
   getDollarTotal() {
     return this.props.addedCoins.reduce(
-      (accumulator, coin) => accumulator + coin.value(),
+      (accumulator, coin) => accumulator + coin.quantity * coin.price_aud,
       0
     );
   }
@@ -18,8 +18,8 @@ export default class CoinTotal extends Component {
     let previous = this.props.addedCoins.reduce(
       (accumulator, coin) =>
         accumulator +
-        coin.value() -
-        coin.value() * parseFloat(coin.change) / 100,
+        coin.quantity * coin.price_aud -
+        coin.quantity * coin.price_aud * parseFloat(coin.change) / 100,
       0
     );
     return previous;

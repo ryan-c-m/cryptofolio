@@ -9,7 +9,7 @@ import * as reducers from "./store/reducers";
 
 const store = createStore(
   combineReducers(reducers),
-  compose(applyMiddleware(thunk))
+  compose(applyMiddleware(thunk), persistState())
 );
 
 ReactDOM.render(
