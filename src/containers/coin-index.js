@@ -3,7 +3,6 @@ import autoBind from "react-autobind";
 import { connect } from "react-redux";
 import * as coinActions from "../store/coins/coin-actions";
 import CoinItems from "../components/coin-items";
-import CoinTotal from "../components/coin-total";
 import CoinAdd from "../components/coin-add";
 
 class CoinIndex extends Component {
@@ -14,11 +13,12 @@ class CoinIndex extends Component {
 
   componentDidMount() {
     this.props.loadCoins();
+    this.props.refreshCoinData();
   }
 
   render() {
     return (
-      <div className="CoinIndex container mt-5">
+      <div className="container mt-5">
         <CoinItems
           addedCoins={this.props.addedCoins}
           deleteCoin={deleted => this.props.deleteCoin(deleted)}
@@ -27,14 +27,16 @@ class CoinIndex extends Component {
           coinList={this.props.coinList}
           addCoin={added => this.props.addCoin(added)}
         />
-        <CoinTotal addedCoins={this.props.addedCoins} />
       </div>
     );
   }
 }
 
 function mapStateToProps(state) {
-  return { addedCoins: state.coins.addedCoins, coinList: state.coins.coinList };
+  return {
+    addedCoins: state.coins.addedCoins,
+    coinList: state.coins.coinList
+  };
 }
 
 function mapDispatchToProps(dispatch) {
@@ -47,6 +49,9 @@ function mapDispatchToProps(dispatch) {
     },
     deleteCoin(deleted) {
       dispatch(coinActions.deleteCoin(deleted));
+    },
+    refreshCoinData() {
+      dispatch(coinActions.refreshCoinData());
     }
   };
 }

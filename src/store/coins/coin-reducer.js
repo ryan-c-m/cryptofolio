@@ -9,12 +9,13 @@ const initialState = Immutable({
 export default function reduce(state = initialState, action = {}) {
   switch (action.type) {
     case types.COINS_FETCHED:
-      const newstate = { ...state, coinList: action.coinList };
-      return newstate;
+      return { ...state, coinList: action.coinList };
     case types.COINS_ADD:
       return addCoin(state, action.added);
     case types.COINS_DELETE:
       return deleteCoin(state, action.deleted);
+    case types.COINS_LOAD_DATA:
+      return { ...state, addedCoins: action.addedCoins };
     default:
       return state;
   }

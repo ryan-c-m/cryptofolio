@@ -24,7 +24,7 @@ describe("coinActions", () => {
     });
 
     it("dispatches a COINS_FETCHED action", async () => {
-      const expectedAction = [{ coinList: coinList, type: "COINS_FETCHED" }];
+      const expectedAction = [{ coinList, type: "COINS_FETCHED" }];
       store.dispatch(coinActions.fetchCoins()).then(() => {
         expect(store.getActions()).toEqual(expectedAction);
       });
@@ -35,8 +35,30 @@ describe("coinActions", () => {
     const store = mockStore();
     it("dispatches a COINS_ADD action", () => {
       const added = { code: "BTC" };
-      const expectedAction = [{ added: added, type: "COINS_ADD" }];
+      const expectedAction = [{ added, type: "COINS_ADD" }];
       store.dispatch(coinActions.addCoin(added)).then(() => {
+        expect(store.getActions()).toEqual(expectedAction);
+      });
+    });
+  });
+
+  describe("deleteCoin", () => {
+    const store = mockStore();
+    it("dispatches a COINS_DELETE action", () => {
+      const deleted = "BTC";
+      const expectedAction = [{ deleted, type: "COINS_DELETE" }];
+      store.dispatch(coinActions.deleteCoin(deleted)).then(() => {
+        expect(store.getActions()).toEqual(expectedAction);
+      });
+    });
+  });
+
+  describe("loadCoinData", () => {
+    const store = mockStore();
+    it("dispatches a COINS_LOAD_DATA action", () => {
+      const addedCoins = [{ code: "BTC", quantity: 3 }];
+      const expectedAction = [{ addedCoins, type: "COINS_LOAD_DATA" }];
+      store.dispatch(coinActions.loadCoinData(addedCoins)).then(() => {
         expect(store.getActions()).toEqual(expectedAction);
       });
     });

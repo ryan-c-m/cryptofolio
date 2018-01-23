@@ -9,9 +9,20 @@ export default class CoinTotal extends Component {
 
   getDollarTotal() {
     return this.props.addedCoins.reduce(
-      (accumulator, coin) => accumulator + coin.quantity * coin.price_aud,
+      (accumulator, coin) => accumulator + coin.value(),
       0
     );
+  }
+
+  getPreviousTotal() {
+    let previous = this.props.addedCoins.reduce(
+      (accumulator, coin) =>
+        accumulator +
+        coin.value() -
+        coin.value() * parseFloat(coin.change) / 100,
+      0
+    );
+    return previous;
   }
 
   getBtcTotal() {
@@ -21,12 +32,40 @@ export default class CoinTotal extends Component {
     );
   }
 
+  getDailyChange() {
+    return {
+      percent:
+        (this.getDollarTotal() - this.getPreviousTotal()) /
+        this.getDollarTotal() *
+        100,
+      dollars: this.getDollarTotal() - this.getPreviousTotal()
+    };
+  }
+
   render() {
-    return (
-      <div className="row col-sm-12 mt-3">
-        ${this.getDollarTotal().toFixed(2)} AUD /{" "}
-        {this.getBtcTotal().toFixed(2)} BTC
+    return this.props.addedCoins.length > 0 ? (
+      <div className="row align-items-center">
+        <div className="col-sm-3">
+          <span className="coin_summary__total_dollar">
+            {this.getDollarTotal().toFixed(2)}
+          </span>
+          <span className="coin_summary__total_dollar_label">AUD</span>
+        </div>
+        <div className="col-sm-6">
+          <span className="coin_summary__total_btc">
+            {this.getBtcTotal().toFixed(2)}
+            <span className="coin_summary__total_btc_label">BTC</span>
+          </span>
+        </div>
+        <div className="col-sm-3">
+          <span className="coin_summary__change_dollar">
+            {this.getDailyChange().dollars.toFixed(2)}
+          </span>
+          <span className="coin_summary__change_pct">
+            ({this.getDailyChange().percent.toFixed(2)}%)
+          </span>
+        </div>
       </div>
-    );
+    ) : null;
   }
 }

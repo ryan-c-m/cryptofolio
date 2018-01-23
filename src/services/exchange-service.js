@@ -3,10 +3,13 @@ import fetch from "cross-fetch";
 class ExchangeService {
   constructor() {
     this.url = "https://api.coinmarketcap.com/v1/ticker/?convert=AUD";
+    this.data = undefined;
   }
 
+  static TIME_TO_REFRESH = 60000;
+
   async getCurrentPrice(coinCode) {
-    const json = await this.getJsonData();
+    const json = await this.getCachableJsonData();
     const result = json
       .filter(item => item.name.toUpperCase() === coinCode.toUpperCase())
       .map(item => {
@@ -24,14 +27,28 @@ class ExchangeService {
     }
   }
   async getCoinList() {
-    const json = await this.getJsonData();
+    const json = await this.getCachableJsonData();
     return json.map(item => {
       return { code: item.symbol, name: item.name };
     });
   }
-  async getJsonData() {
+
+  async getCachableJsonData() {
+    if (
+      this.data &&
+      this.updated &&
+      Date.now() - this.updated < this.TIME_TO_REFRESH
+    ) {
+      return this.data;
+    }
+    return this.refreshJsonData();
+  }
+
+  async refreshJsonData() {
     const response = await fetch(this.url);
-    return await response.json();
+    this.data = response.json();
+    this.updated = Date.now();
+    return this.data;
   }
 }
 export default new ExchangeService();

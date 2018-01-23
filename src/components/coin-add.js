@@ -83,6 +83,11 @@ export default class CoinAdd extends Component {
         </button>
       </div>
     );
-    return <div> {this.state.addingCoin ? coinAddOpen : coinAddClose} </div>;
+    return (
+      <div className="mt-3">
+        {" "}
+        {this.state.addingCoin ? coinAddOpen : coinAddClose}{" "}
+      </div>
+    );
   }
 }

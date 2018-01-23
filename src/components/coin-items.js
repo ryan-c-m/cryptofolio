@@ -13,39 +13,43 @@ export default class CoinItems extends Component {
   }
 
   render() {
-    let total = 0;
-    this.props.addedCoins.map(
-      coin => (total += coin.quantity * coin.price_aud)
+    let total = this.props.addedCoins.reduce(
+      (accumulator, coin) => accumulator + coin.quantity * coin.price_aud,
+      0
     );
     const coinItems =
       this.props.addedCoins.length > 0
-        ? this.props.addedCoins.map(coin => {
-            return (
-              <div className="row align-items-center mt-1 mb-1" key={coin.code}>
-                <div className="col-md-3">
-                  {coin.code} (${coin.price_aud.toFixed(2)})
+        ? this.props.addedCoins
+            .sort((a, b) => a.value() < b.value())
+            .map(coin => {
+              return (
+                <div
+                  className="row align-items-center mt-1 mb-1"
+                  key={coin.code}
+                >
+                  <div className="col-md-3">
+                    {coin.code} (${coin.price_aud.toFixed(2)})
+                  </div>
+                  <div className="col-md-2">{coin.quantity}</div>
+                  <div className="col-md-3">
+                    ${(coin.quantity * coin.price_aud).toFixed(2)} ({(
+                      coin.value() /
+                      total *
+                      100
+                    ).toFixed(0)}%)
+                  </div>
+                  <div className="col-md-2">{coin.change}%</div>
+                  <div className="col-md-2">
+                    <button
+                      className="coin_list__delete"
+                      onClick={e => this.handleDelete(coin.code, e)}
+                    >
+                      Delete
+                    </button>
+                  </div>
                 </div>
-                <div className="col-md-2">{coin.quantity}</div>
-                <div className="col-md-3">
-                  ${(coin.quantity * coin.price_aud).toFixed(2)} ({(
-                    coin.quantity *
-                    coin.price_aud /
-                    total *
-                    100
-                  ).toFixed(0)}%)
-                </div>
-                <div className="col-md-2">{coin.change}%</div>
-                <div className="col-md-2">
-                  <button
-                    className="btn btn-primary"
-                    onClick={e => this.handleDelete(coin.code, e)}
-                  >
-                    Delete
-                  </button>
-                </div>
-              </div>
-            );
-          })
+              );
+            })
         : "There is nothing here...";
 
     const header = (
