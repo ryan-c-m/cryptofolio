@@ -22,11 +22,8 @@ export default class CoinItems extends Component {
             .sort((a, b) => b.quantity * b.price_aud - a.quantity * a.price_aud)
             .map(coin => {
               return (
-                <div
-                  className="row align-items-center mt-1 mb-1"
-                  key={coin.code}
-                >
-                  <div className="col-3">
+                <div className="row mt-1 mb-1" key={coin.code}>
+                  <div className="col-4">
                     {coin.code} (${coin.price_aud.toFixed(2)})
                   </div>
                   <div className="col-2">{coin.quantity}</div>
@@ -46,7 +43,7 @@ export default class CoinItems extends Component {
                   >
                     {coin.change}%
                   </div>
-                  <div className="col-2">
+                  <div className="col-1">
                     <button
                       className="coin_list__delete"
                       onClick={e => this.handleDelete(coin.code, e)}
@@ -61,7 +58,7 @@ export default class CoinItems extends Component {
 
     const header = (
       <div className="row mb-2">
-        <div className="col-3">
+        <div className="col-4">
           <h4>Currency</h4>
         </div>
         <div className="col-2">

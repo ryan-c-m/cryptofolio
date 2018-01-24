@@ -11,7 +11,7 @@ class CoinSummary extends Component {
 
   render() {
     return (
-      <div className="container mt-5">
+      <div className="container mt-4">
         <CoinTotal addedCoins={this.props.addedCoins} />
       </div>
     );

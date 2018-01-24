@@ -18,7 +18,7 @@ class CoinIndex extends Component {
 
   render() {
     return (
-      <div className="container mt-5">
+      <div className="container mt-3">
         <CoinItems
           addedCoins={this.props.addedCoins}
           deleteCoin={deleted => this.props.deleteCoin(deleted)}
