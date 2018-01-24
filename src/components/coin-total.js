@@ -58,7 +58,14 @@ export default class CoinTotal extends Component {
           </span>
         </div>
         <div className="col-sm-3">
-          <span className="coin_summary__change_dollar">
+          <span
+            className={
+              "coin_summary__change_dollar " +
+              (this.getDailyChange().dollars > 0
+                ? "coin_summary__change_dollar--up"
+                : "coin_summary__change_dollar--down")
+            }
+          >
             {this.getDailyChange().dollars.toFixed(2)}
           </span>
           <span className="coin_summary__change_pct">

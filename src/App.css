@@ -33,6 +33,12 @@ h4 {
   font-size: 16px;
 }
 
+.page_header__topbar {
+  width: 100%;
+  height: 60px;
+  background-color: black;
+}
+
 .coin_summary__total_dollar {
   font-size: 26px;
 }
@@ -53,6 +59,22 @@ h4 {
 
 .coin_summary__change_dollar {
   font-size: 26px;
+}
+
+.coin_summary__change_dollar--up {
+  color: green;
+}
+
+.coin_summary__change_dollar--down {
+  color: red;
+}
+
+.coin_list--up {
+  color: green;
+}
+
+.coin_list--down {
+  color: red;
 }
 
 .coin_summary__change_pct {

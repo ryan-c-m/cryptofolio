@@ -65,13 +65,13 @@ export default class CoinAdd extends Component {
           />
         </div>
         <div className="col-sm-4">
-          <input type="submit" value="Add" className="btn btn-primary mr-2" />
+          <input type="submit" value="+" className="btn btn-primary mr-2" />
           <button
             type="submit"
             onClick={this.closeAdd}
             className="btn btn-primary mr-2"
           >
-            Cancel
+            x
           </button>
         </div>
       </form>
