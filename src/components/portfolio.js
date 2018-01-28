@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import CoinSummary from "./coin-summary";
-import CoinIndex from "./coin-index";
+import CoinSummary from "./../containers/coin-summary";
+import CoinIndex from "./../containers/coin-index";
 
 export default class Portfolio extends Component {
   render() {

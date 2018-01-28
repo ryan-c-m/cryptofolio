@@ -7,19 +7,44 @@ export default class PageHeader extends Component {
     super(props);
     autoBind(this);
   }
-
   render() {
     return (
       <div className="page_header__topbar">
         <div className="container">
           <div className="row align-items-center">
-            <div>
-              <Link className="header__item" to="/portfolio">
+            <div
+              className={
+                "header__item " +
+                (this.props.location.pathname === "/"
+                  ? "header__item--selected"
+                  : "")
+              }
+            >
+              <Link className="header__item_text" to="/">
+                Home
+              </Link>
+            </div>
+            <div
+              className={
+                "header__item " +
+                (this.props.location.pathname === "/portfolio"
+                  ? "header__item--selected"
+                  : "")
+              }
+            >
+              <Link className="header__item_text" to="/portfolio">
                 Portfolio
               </Link>
             </div>
-            <div>
-              <Link className="header__item" to="/analytics">
+            <div
+              className={
+                "header__item " +
+                (this.props.location.pathname === "/analytics"
+                  ? "header__item--selected"
+                  : "")
+              }
+            >
+              <Link className="header__item_text" to="/analytics">
                 Analytics
               </Link>
             </div>

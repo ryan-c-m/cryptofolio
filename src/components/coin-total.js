@@ -45,7 +45,7 @@ export default class CoinTotal extends Component {
   render() {
     return this.props.addedCoins.length > 0 ? (
       <div className="row align-bottom">
-        <div className="col-12 col-sm-6 mb-3">
+        <div className="col-12 col-md-6 mb-3">
           <div className="coin_summary__title">Total portfolio value</div>
           <span className="coin_summary__total_dollar">
             {this.getDollarTotal().toFixed(2)}
@@ -56,7 +56,7 @@ export default class CoinTotal extends Component {
             <span className="coin_summary__total_btc_label">BTC</span>
           </span>
         </div>
-        <div className="col-12 col-sm-3 mb-3">
+        <div className="col-12 col-md-3 mb-3">
           <div className="coin_summary__title">24h change</div>
           <span
             className={
