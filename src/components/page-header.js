@@ -13,12 +13,12 @@ export default class PageHeader extends Component {
       <div className="page_header__topbar">
         <div className="container">
           <div className="row align-items-center">
-            <div className=" col-1">
+            <div>
               <Link className="header__item" to="/portfolio">
                 Portfolio
               </Link>
             </div>
-            <div className="col-1">
+            <div>
               <Link className="header__item" to="/analytics">
                 Analytics
               </Link>

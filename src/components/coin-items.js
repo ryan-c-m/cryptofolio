@@ -23,11 +23,10 @@ export default class CoinItems extends Component {
             .map(coin => {
               return (
                 <div className="row mt-1 mb-1" key={coin.code}>
-                  <div className="col-3">
+                  <div className="col-3 col-sm-2">
                     {coin.code} 
                   </div>
-                  <div className="col-2">${coin.price_aud.toFixed(2)}</div>
-                  <div className="col-3">
+                  <div className="col-3 col-sm-2">
                     ${(coin.quantity * coin.price_aud).toFixed(2)}
                     <br />{coin.quantity}
                   </div>
@@ -37,7 +36,7 @@ export default class CoinItems extends Component {
                       (coin.change >= 0 ? "coin_list--up" : "coin_list--down")
                     }
                   >
-                    {coin.change}%
+                    ${coin.price_aud.toFixed(2)}<br />{coin.change >= 0 ? "+" : ""}{coin.change}%
                   </div>
                   <div className="col-1">
                     <button
@@ -54,17 +53,14 @@ export default class CoinItems extends Component {
 
     const header = (
       <div className="row mb-2">
-        <div className="col-3">
+        <div className="col-3 col-sm-2">
           <h4>Currency</h4>
         </div>
-        <div className="col-2">
-          <h4>Price</h4>
-        </div>
-        <div className="col-3">
+        <div className="col-3 col-sm-2">
           <h4>Value</h4>
         </div>
         <div className="col-2">
-          <h4>Change (24h)</h4>
+          <h4>Price</h4>
         </div>
       </div>
     );

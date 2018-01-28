@@ -38,6 +38,7 @@ h4 {
   align-items: center;
   height: 60px;
   color: white;
+  margin-left: 15px;
 }
 
 .header__item:hover {
