@@ -50,7 +50,7 @@ export default class CoinItems extends Component {
         : "There is nothing here...";
 
     const header = (
-      <div className="row mb-2">
+      <div className="coin_list__header row">
         <div className="col-3 col-md-2">
           <h4>Currency</h4>
         </div>

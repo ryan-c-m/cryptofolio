@@ -44,7 +44,6 @@ h4 {
   align-items: center;
   height: 60px;
   color: white;
-  margin-left: 15px;
 }
 
 .header__item_text:hover {
@@ -121,6 +120,15 @@ h4 {
   cursor: pointer;
   background-color: transparent;
   border: none;
+}
+
+@media screen and (max-width: 575px) {
+  .coin_list__header {
+    color: white;
+    background-color: #333333;
+    padding-top: 10px;
+    margin-bottom: 20px;
+  }
 }
 
 @keyframes App-logo-spin {
