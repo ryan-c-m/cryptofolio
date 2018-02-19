@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import autoBind from "react-autobind";
 import { connect } from "react-redux";
-import CoinTotal from "../components/coin-total";
+import CoinSummary from "../components/coin-summary";
 
-class CoinSummary extends Component {
+class CoinSummaryContainer extends Component {
   constructor(props) {
     super(props);
     autoBind(this);
@@ -12,7 +12,7 @@ class CoinSummary extends Component {
   render() {
     return (
       <div className="container mt-4">
-        <CoinTotal addedCoins={this.props.addedCoins} />
+        <CoinSummary addedCoins={this.props.addedCoins} />
       </div>
     );
   }
@@ -28,4 +28,6 @@ function mapDispatchToProps(dispatch) {
   return {};
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CoinSummary);
+export default connect(mapStateToProps, mapDispatchToProps)(
+  CoinSummaryContainer
+);

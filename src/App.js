@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import "./css/bootstrap.min.css";
-import "./css/react-select.min.css";
 import MainView from "./components/main-view";
 import Header from "./containers/header";
 import { Route } from "react-router-dom";

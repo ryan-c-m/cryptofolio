@@ -12,40 +12,9 @@ export default class PageHeader extends Component {
       <div className="page_header__topbar">
         <div className="container">
           <div className="row align-items-center">
-            <div
-              className={
-                "header__item " +
-                (this.props.location.pathname === "/"
-                  ? "header__item--selected"
-                  : "")
-              }
-            >
-              <Link className="header__item_text" to="/">
-                Home
-              </Link>
-            </div>
-            <div
-              className={
-                "header__item " +
-                (this.props.location.pathname === "/portfolio"
-                  ? "header__item--selected"
-                  : "")
-              }
-            >
+            <div className={"header__item header__item--selected"}>
               <Link className="header__item_text" to="/portfolio">
                 Portfolio
-              </Link>
-            </div>
-            <div
-              className={
-                "header__item " +
-                (this.props.location.pathname === "/analytics"
-                  ? "header__item--selected"
-                  : "")
-              }
-            >
-              <Link className="header__item_text" to="/analytics">
-                Analytics
               </Link>
             </div>
           </div>

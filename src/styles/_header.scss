@@ -1,0 +1,32 @@
+.header__item {
+  padding: 0 15px;
+  position: relative;
+  top: 5px;
+}
+
+.header__item_text {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  color: white;
+}
+
+.header__item_text:hover {
+  color: white;
+}
+
+.header__item_text:focus {
+  color: white;
+  text-decoration: none;
+}
+
+.header__item--selected {
+  border-bottom: 5px solid white;
+  border-top: 5px solid black;
+}
+
+.page_header__topbar {
+  width: 100%;
+  background-color: black;
+  border-bottom: 5px solid gray;
+}

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import autoBind from "react-autobind";
 import Portfolio from "./portfolio";
-import HomePage from "./../components/home-page";
 import { Switch, Route } from "react-router-dom";
 
 export default class MainView extends Component {
@@ -13,9 +12,8 @@ export default class MainView extends Component {
     return (
       <main>
         <Switch>
-          <Route path="/analytics" component={HomePage} />
           <Route path="/portfolio" component={Portfolio} />
-          <Route exact path="/" component={HomePage} />
+          <Route exact path="/" component={Portfolio} />
         </Switch>
       </main>
     );

@@ -5,7 +5,7 @@ import * as coinActions from "../store/coins/coin-actions";
 import CoinItems from "../components/coin-items";
 import CoinAdd from "../components/coin-add";
 
-class CoinIndex extends Component {
+class CoinItemsContainer extends Component {
   constructor(props) {
     super(props);
     autoBind(this);
@@ -56,4 +56,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CoinIndex);
+export default connect(mapStateToProps, mapDispatchToProps)(CoinItemsContainer);

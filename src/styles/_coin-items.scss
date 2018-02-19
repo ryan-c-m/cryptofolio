@@ -1,0 +1,51 @@
+.coin_list__name {
+  font-size: 20px;
+}
+
+.coin_list__primary {
+  font-size: 20px;
+}
+
+.coin_list__secondary {
+  font-size: 18px;
+}
+
+.coin_list--up {
+  color: green;
+}
+
+.coin_list--down {
+  color: red;
+}
+
+.coin_list__delete {
+  text-decoration: underline;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+.coin_list__added_items {
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 575px) {
+  .coin_list__header {
+    color: white;
+    background-color: #333333;
+    padding-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  .coin_list__name {
+    font-size: 1em;
+  }
+
+  .coin_list__primary {
+    font-size: 0.9em;
+  }
+
+  .coin_list__secondary {
+    font-size: 0.9em;
+  }
+}

@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import CoinSummary from "./../containers/coin-summary";
-import CoinIndex from "./../containers/coin-index";
+import CoinSummaryContainer from "./../containers/coin-summary";
+import CoinItemsContainer from "./../containers/coin-items";
 
 export default class Portfolio extends Component {
   render() {
     return (
       <div>
-        <CoinSummary />
-        <CoinIndex />
+        <CoinSummaryContainer />
+        <CoinItemsContainer />
       </div>
     );
   }
