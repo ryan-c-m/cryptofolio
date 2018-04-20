@@ -15,7 +15,7 @@ export default function reduce(state = initialState, action = {}) {
     case types.COINS_DELETE:
       return deleteCoin(state, action.deleted);
     case types.COINS_LOAD_DATA:
-      return { ...state, addedCoins: action.addedCoins };
+      return { ...state, addedCoins: [...action.addedCoins] };
     default:
       return state;
   }

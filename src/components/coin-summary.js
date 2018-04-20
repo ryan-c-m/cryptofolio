@@ -44,11 +44,11 @@ export default class CoinSummary extends Component {
 
   render() {
     return this.props.addedCoins.length > 0 ? (
-      <div className="row align-bottom">
-        <div className="col-12 col-md-6 mb-3">
+      <div className="row align-bottom mb-4">
+        <div className="col-12 col-md-6">
           <div className="coin_summary__title">Total portfolio value</div>
           <span className="coin_summary__total_dollar">
-            {this.getDollarTotal().toFixed(2)}
+            {this.getDollarTotal().toFixed(0)}
           </span>
           <span className="coin_summary__total_dollar_label">AUD</span>
           <span className="coin_summary__total_btc ml-4">
@@ -56,7 +56,7 @@ export default class CoinSummary extends Component {
             <span className="coin_summary__total_btc_label">BTC</span>
           </span>
         </div>
-        <div className="col-12 col-md-3 mb-3">
+        <div className="col-12 col-md-3">
           <div className="coin_summary__title">24h change</div>
           <span
             className={
@@ -66,7 +66,7 @@ export default class CoinSummary extends Component {
                 : "coin_summary__change_dollar--down")
             }
           >
-            {this.getDailyChange().dollars.toFixed(2)}
+            {this.getDailyChange().dollars.toFixed(0)}
           </span>
           <span
             className={
@@ -78,6 +78,9 @@ export default class CoinSummary extends Component {
           >
             ({this.getDailyChange().percent.toFixed(2)}%)
           </span>
+        </div>
+        <div className="col-12">
+          <button onClick={this.props.refresh} className="coin_summary__update">Update price data</button>
         </div>
       </div>
     ) : null;

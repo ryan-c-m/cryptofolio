@@ -8,9 +8,6 @@ class Header extends Component {
     super(props);
     autoBind(this);
   }
-  componentDidMount() {
-    console.log(this.props);
-  }
   render() {
     return <PageHeader location={this.props.location} />;
   }

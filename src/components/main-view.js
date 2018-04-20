@@ -12,6 +12,7 @@ export default class MainView extends Component {
     return (
       <main>
         <Switch>
+          <Route path="/cryptofolio" component={Portfolio} />
           <Route path="/portfolio" component={Portfolio} />
           <Route exact path="/" component={Portfolio} />
         </Switch>
