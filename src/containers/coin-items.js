@@ -13,6 +13,7 @@ class CoinItemsContainer extends Component {
 
   componentDidMount() {
     this.props.loadCoins();
+    this.props.refreshCoinData();
   }
 
   render() {
