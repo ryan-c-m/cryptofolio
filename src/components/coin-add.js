@@ -87,7 +87,7 @@ export default class CoinAdd extends Component {
             />
           </div>
           <div className="mt-4">
-            <button type="submit" onClick={this.handleSubmit} className="btn btn-primary mr-2">Add</button>
+            <button id="add_coin__submit_btn" type="submit" onClick={this.handleSubmit} className="btn btn-primary mr-2">Add</button>
             <button
               type="submit"
               onClick={this.closeModal}
@@ -107,7 +107,7 @@ export default class CoinAdd extends Component {
       </div>
     );
     return (
-      <div className="coin_add container mt-3">
+      <div className="coin_add container mt-3 mb-3">
         {coinAdd}
         {coinAddModal}
       </div>

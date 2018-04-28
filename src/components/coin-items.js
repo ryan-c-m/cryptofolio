@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import Modal from "react-modal";
 import autoBind from "react-autobind";
 
-Modal.setAppElement('#root')
-
 export default class CoinItems extends Component {
   constructor(props) {
     super(props);
@@ -11,6 +9,10 @@ export default class CoinItems extends Component {
     this.state = {
       modalIsOpen: false
     };
+  }
+
+  componentWillMount() {
+    Modal.setAppElement('body')
   }
 
   openModal(coin) {
