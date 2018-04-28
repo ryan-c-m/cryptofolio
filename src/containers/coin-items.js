@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import autoBind from "react-autobind";
 import { connect } from "react-redux";
 import * as coinActions from "../store/coins/coin-actions";
-import CoinItems from "../components/coin-items";
+import CoinItemList from "../components/coin-item-list";
 import CoinAdd from "../components/coin-add";
 
 class CoinItemsContainer extends Component {
@@ -18,7 +18,7 @@ class CoinItemsContainer extends Component {
   render() {
     return (
       <div className="container mt-2">
-        <CoinItems
+        <CoinItemList
           addedCoins={this.props.addedCoins}
           deleteCoin={deleted => this.props.deleteCoin(deleted)}
         />
