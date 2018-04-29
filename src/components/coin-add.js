@@ -103,14 +103,12 @@ export default class CoinAdd extends Component {
       </Modal >
     );
     const coinAdd = (
-      <div className="row">
-        <button className="btn btn-primary col-12 col-md-8" onClick={this.openModal}>
-          Add coin
+      <button className="btn btn-primary" onClick={this.openModal}>
+        Add coin
         </button>
-      </div>
     );
     return (
-      <div className="coin_add container mt-3 mb-3">
+      <div className="coin_add mt-3 mb-3">
         {coinAdd}
         {coinAddModal}
       </div>

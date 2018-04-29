@@ -11,16 +11,51 @@ let wrapper;
 beforeEach(() => {
     configure({ adapter: new Adapter() });
     deleteCoinFn = jest.fn();
-    wrapper = shallow(<CoinItemList addedCoins={addedCoins} deleteCoin={deleteCoinFn} />);
 });
 
-it('renders a CoinItem for each in addedCoins prop', () => {
-    expect(wrapper.find('CoinItem').length).toBe(2);
+describe("there are no added coins", () => {
+
+    beforeEach(() => {
+        wrapper = shallow(<CoinItemList addedCoins={[]} deleteCoin={deleteCoinFn} />);
+    });
+
+    it('does not render any CoinItems', () => {
+        expect(wrapper.find('CoinItem').length).toBe(0);
+    });
+
+    it('does not show header', () => {
+        expect(wrapper.find('.coin_list__header').length).toBe(0);
+    });
+
+    it('shows an appropriate message', () => {
+        expect(wrapper.find(".coin_list__no_items").text()).toBe("There is nothing here...");
+    });
+});
+
+describe("there are added coins", () => {
+
+    beforeEach(() => {
+        wrapper = shallow(<CoinItemList addedCoins={addedCoins} deleteCoin={deleteCoinFn} />);
+    });
+
+    it('shows the header', () => {
+        expect(wrapper.find('.coin_list__header').length).toBe(1);
+    });
+
+    it('renders a CoinItem for each in addedCoins prop', () => {
+        expect(wrapper.find('CoinItem').length).toBe(2);
+    });
+
+    it('does not show nothing here message', () => {
+        expect(wrapper.find(".coin_list__no_items").length).toBe(0);
+    });
+
 });
 
 describe('delete coin', () => {
 
     beforeEach(() => {
+        wrapper = shallow(<CoinItemList addedCoins={addedCoins} deleteCoin={deleteCoinFn} />);
         wrapper.instance().openModal({ code: 'Bitcoin' });
     });
 

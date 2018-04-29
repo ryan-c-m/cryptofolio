@@ -43,17 +43,18 @@ export default class CoinItemList extends Component {
     };
 
     const header = (
-      <div className="coin_list__header row">
-        <div className="col-3 col-md-2">
-          <h4>Currency</h4>
-        </div>
-        <div className="col-3 col-md-2">
-          <h4>Value</h4>
-        </div>
-        <div className="col-3">
-          <h4>Price</h4>
-        </div>
-      </div>
+      this.props.addedCoins.length > 0 ?
+        <div className="coin_list__header row">
+          <div className="col-3 col-md-2">
+            <h4>Currency</h4>
+          </div>
+          <div className="col-3 col-md-2">
+            <h4>Value</h4>
+          </div>
+          <div className="col-3">
+            <h4>Price</h4>
+          </div>
+        </div> : null
     );
 
     const coinItems =
@@ -65,7 +66,7 @@ export default class CoinItemList extends Component {
               <CoinItem key={coin.code} coin={coin} openModal={this.openModal}
               />);
           })
-        : "There is nothing here...";
+        : <span className="coin_list__no_items">There is nothing here...</span>;
 
     const deleteModal = (
       <Modal

@@ -42,13 +42,14 @@ h3 {
   font-size:1.4em;
 }
 
+.coin_list__header {
+  color: white;
+  background-color: #333333;
+  padding-top: 10px;
+  margin-bottom: 20px;
+}
+
 @media screen and (max-width: 575px) {
-  .coin_list__header {
-    color: white;
-    background-color: #333333;
-    padding-top: 10px;
-    margin-bottom: 20px;
-  }
 
   .coin_list__name {
     font-size: 1em;

@@ -25,7 +25,7 @@ export default class CoinItem extends Component {
             </div>
             <div
                 className={
-                    "col-3 " +
+                    "col-3 col-md-2 " +
                     (coin.change >= 0 ? "coin_list--up" : "coin_list--down")
                 }
             >
