@@ -79,6 +79,7 @@ export default class CoinAdd extends Component {
           </div>
           <div className="mt-2">
             <input
+              id="quantity"
               value={this.state.quantity}
               onChange={this.updateQuantity}
               name="quantity"
@@ -87,11 +88,13 @@ export default class CoinAdd extends Component {
             />
           </div>
           <div className="mt-4">
-            <button id="add_coin__submit_btn" type="submit" onClick={this.handleSubmit} className="btn btn-primary mr-2">Add</button>
+            <button type="submit" onClick={this.handleSubmit}
+              className="add_coin__submit_btn btn btn-primary mr-2">Add</button>
             <button
+              id=""
               type="submit"
               onClick={this.closeModal}
-              className="btn btn-primary mr-2"
+              className="add_coin__cancel_btn btn btn-primary mr-2"
             >
               Cancel
           </button>
