@@ -62,7 +62,7 @@ export default class CoinItemList extends Component {
           .sort((a, b) => b.quantity * b.price_aud - a.quantity * a.price_aud)
           .map(coin => {
             return (
-              <CoinItem coin={coin} openModal={this.openModal}
+              <CoinItem key={coin.code} coin={coin} openModal={this.openModal}
               />);
           })
         : "There is nothing here...";
@@ -74,8 +74,8 @@ export default class CoinItemList extends Component {
         onRequestClose={this.closeModal}
         style={modalStyles}
       >
-        <h3>Delete {this.state.coinToDelete} from your portfolio?</h3>
-        <button className="btn btn-primary" onClick={() => this.confirmDelete(this.state.coinToDelete)}>Confirm</button>
+        <h3 className="coin_list__delete_modal_header">Delete {this.state.coinToDelete} from your portfolio?</h3>
+        <button className="coin_list__confirm_delete btn btn-primary" onClick={() => this.confirmDelete(this.state.coinToDelete)}>Confirm</button>
         <button className="coin_list__cancel" onClick={this.closeModal}>Cancel</button>
       </Modal>
     )

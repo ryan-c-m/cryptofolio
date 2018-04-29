@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Modal from "react-modal";
 import autoBind from "react-autobind";
 
 export default class CoinItem extends Component {
@@ -11,7 +10,7 @@ export default class CoinItem extends Component {
 
     render() {
         const coin = this.props.coin;
-        return (<div className="row mt-1 mb-1" key={coin.code}>
+        return (<div className="row mt-1 mb-1">
             <div className="coin_list__name col-3 col-md-2">
                 {coin.code}
             </div>
