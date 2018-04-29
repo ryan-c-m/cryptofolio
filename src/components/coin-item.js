@@ -16,7 +16,7 @@ export default class CoinItem extends Component {
                 {coin.code}
             </div>
             <div className="col-3 col-md-2">
-                <span className="coin_list__primary">
+                <span className="coin_list__value coin_list__primary">
                     ${(coin.quantity * coin.price_aud).toFixed(2)}
                 </span>
                 <br />
@@ -30,12 +30,12 @@ export default class CoinItem extends Component {
                     (coin.change >= 0 ? "coin_list--up" : "coin_list--down")
                 }
             >
-                <span className="coin_list__primary">
+                <span className="coin_list__price coin_list__primary">
                     ${coin.price_aud.toFixed(2)}
                 </span>
                 <br />
                 {coin.change >= 0 ? "+" : ""}
-                <span className="coin_list__secondary">{coin.change}%</span>
+                <span className="coin_list__change coin_list__secondary">{coin.change}%</span>
             </div>
             <div className="col-3">
                 <button
