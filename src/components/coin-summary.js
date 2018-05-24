@@ -79,9 +79,6 @@ export default class CoinSummary extends Component {
             ({this.getDailyChange().percent.toFixed(2)}%)
           </span>
         </div>
-        <div className="col-12">
-          <button onClick={this.props.refresh} className="coin_summary__update">Update price data</button>
-        </div>
       </div>
     ) : null;
   }
