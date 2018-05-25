@@ -1,8 +1,9 @@
 @import "bootstrap/dist/css/bootstrap.min";
 @import "react-select/dist/react-select.min";
+@import "react-toastify/dist/ReactToastify.min";
 
+@import "./styles/_global.scss";
 @import "./styles/_coin-add.scss";
 @import "./styles/_coin-items.scss";
 @import "./styles/_coin-summary.scss";
 @import "./styles/_header.scss";
-@import "./styles/_global.scss";

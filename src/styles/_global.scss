@@ -1,7 +1,9 @@
+$dark: #444444;
+
 .btn {
   cursor: pointer;
-  background-color: black;
-  border-color: black;
+  background-color: $dark;
+  border-color: $dark;
 }
 
 h4 {
@@ -9,4 +11,12 @@ h4 {
 }
 .container {
   width: 100%;
+}
+
+body {
+  font-family: Helvetica, sans-serif
+}
+
+.Toastify__toast--success {
+  background: $dark;
 }

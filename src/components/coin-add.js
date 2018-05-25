@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import autoBind from "react-autobind";
 import Select from "react-select";
 import Modal from "react-modal";
-
+import { toast } from 'react-toastify';
 
 export default class CoinAdd extends Component {
   constructor(props) {
@@ -11,12 +11,20 @@ export default class CoinAdd extends Component {
     this.state = { code: "", quantity: "", modalIsOpen: false };
   }
 
+  notify = (coin) => toast.success(coin + " added to portfolio.", {
+    position: toast.POSITION.BOTTOM_LEFT
+  });
+
   handleSubmit() {
+    if (!this.state.code || !this.state.quantity) {
+      return;
+    }
     this.props.addCoin({
       code: this.state.code,
       quantity: this.state.quantity
     });
     this.setState({ code: "", quantity: "", modalIsOpen: false });
+    this.notify(this.state.code);
   }
 
   updateCode(newValue) {
@@ -85,6 +93,7 @@ export default class CoinAdd extends Component {
               name="quantity"
               placeholder="Quantity"
               className="form-control"
+              type="number"
             />
           </div>
           <div className="mt-4">

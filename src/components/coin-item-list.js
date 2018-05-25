@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Modal from "react-modal";
 import autoBind from "react-autobind";
 import CoinItem from "./coin-item";
+import { toast } from 'react-toastify';
 
 export default class CoinItemList extends Component {
   constructor(props) {
@@ -11,6 +12,10 @@ export default class CoinItemList extends Component {
       modalIsOpen: false
     };
   }
+
+  notify = (coin) => toast.success(coin + " deleted from portfolio.", {
+    position: toast.POSITION.BOTTOM_LEFT
+  });
 
   componentWillMount() {
     Modal.setAppElement('body')
@@ -27,6 +32,7 @@ export default class CoinItemList extends Component {
   confirmDelete(code) {
     this.setState({ modalIsOpen: false });
     this.props.deleteCoin(code);
+    this.notify(code);
   }
 
   render() {

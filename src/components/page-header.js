@@ -14,7 +14,7 @@ export default class PageHeader extends Component {
           <div className="row align-items-center">
             <div className={"header__item header__item--selected"}>
               <Link className="header__item_text" to="/portfolio">
-                Portfolio
+                Cryptofolio
               </Link>
             </div>
           </div>
