@@ -39,7 +39,7 @@
 
 h3 {
   margin-bottom: 20px;
-  font-size:1.4em;
+  font-size:1.2em;
 }
 
 .coin_list__header {
@@ -47,6 +47,7 @@ h3 {
   background-color: $dark;
   padding-top: 10px;
   margin-bottom: 20px;
+  box-shadow: 0 3px 4px 0 rgba(0,0,0,0.2), 0 3px 3px -2px rgba(0,0,0,0.14), 0 1px 8px 0 rgba(0,0,0,0.12)
 }
 
 @media screen and (max-width: 575px) {

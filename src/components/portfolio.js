@@ -11,7 +11,7 @@ export default class Portfolio extends Component {
         <CoinItemsContainer />
         <ToastContainer
           position="bottom-left"
-          autoClose={50000}
+          autoClose={4000}
           hideProgressBar
           newestOnTop={false}
           closeOnClick
